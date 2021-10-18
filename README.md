@@ -29,6 +29,6 @@ javac HelloWorld.java
 To execute the program, type this:
 
 ```console
-java HelloWorld
+java HelloWorld..
 ```
 
