@@ -1,0 +1,28 @@
+pipeline{
+    agent any
+    
+    environment{
+        PATH = "/opt/maven3/bin:$PATH"
+    }
+    stages{
+        stage("Git Checkout"){
+            steps{
+               git credentialsId: 'javahome2', url: 'https://github.com/aulapathisaikiran/hello-world-java.git'
+            }
+        }
+        
+        stage("deploy-dev"){
+            steps{
+                sshagent(['tomcat-new']) {
+                sh """
+                    scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/index.html  ec2-user@192.168.1.149:/home/ec2-user/var/www/
+                    
+                    
+                
+                """
+            }
+            
+            }
+        }
+    }
+}
