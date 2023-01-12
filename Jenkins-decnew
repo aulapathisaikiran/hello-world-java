@@ -13,7 +13,7 @@ pipeline{
             steps{
                 sshagent(['tomcat-new']) {
                 sh """
-                    scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/index.html  ec2-user@192.168.1.149:/ec2-user/var/www/
+                    scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/  ec2-user@192.168.1.149:/ec2-user/var/www/
                     
                     
                 
